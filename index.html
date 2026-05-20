@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>El Gusto de la Cala – La Cala de Mijas</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="El Gusto de la Cala – Restaurante en La Cala de Mijas. Elige tu idioma / Choose your language.">
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+<style>
+  html,body{margin:0;padding:0;height:100%;font-family:Georgia,serif;background:#000;overflow:hidden;}
+  .wrap{position:relative;width:100vw;height:100vh;overflow:hidden;}
+  .bg-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
+  .overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.15) 0%,rgba(0,0,0,.15) 55%,rgba(0,0,0,.85) 100%);}
+  .box{position:absolute;left:0;right:0;bottom:8vh;text-align:center;color:#fff;padding:0 24px;z-index:2;}
+  .choose{margin:0 0 24px;font-size:.85rem;letter-spacing:.25em;text-transform:uppercase;opacity:.9;}
+  .flags{display:flex;gap:48px;justify-content:center;flex-wrap:wrap;}
+  .flag{text-decoration:none;color:#fff;display:block;}
+  .circle{
+    width:96px;height:96px;border-radius:50%;overflow:hidden;
+    border:3px solid #fff;box-shadow:0 8px 30px rgba(0,0,0,.4);
+    background:#fff;transition:transform .3s ease;
+  }
+  .flag:hover .circle{transform:scale(1.08);}
+  .label{margin-top:12px;font-size:.9rem;letter-spacing:.15em;text-transform:uppercase;}
+  .circle svg{width:100%;height:100%;display:block;}
+  @media (max-width:767px){
+    .bg-img{content:url('images/main-slider/entrecot-mobile-language.jpg');}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <img class="bg-img" src="images/main-slider/entrecot-language.jpg" alt="">
+  <div class="overlay"></div>
+  <div class="box">
+    <p class="choose">Elige tu idioma · Choose your language</p>
+    <div class="flags">
+      <a class="flag" href="es.html" aria-label="Español">
+        <div class="circle">
+          <svg viewBox="0 0 3 2" preserveAspectRatio="xMidYMid slice">
+            <rect width="3" height="2" fill="#AA151B"/>
+            <rect y="0.5" width="3" height="1" fill="#F1BF00"/>
+          </svg>
+        </div>
+        <div class="label">Español</div>
+      </a>
+      <a class="flag" href="en.html" aria-label="English">
+        <div class="circle">
+          <svg viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice">
+            <clipPath id="t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath>
+            <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
+            <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+            <path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#C8102E" stroke-width="4"/>
+            <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+            <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/>
+          </svg>
+        </div>
+        <div class="label">English</div>
+      </a>
+    </div>
+  </div>
+</div>
+</body>
+</html>
