@@ -12,8 +12,8 @@
   .bg-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
   .overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.15) 0%,rgba(0,0,0,.15) 55%,rgba(0,0,0,.85) 100%);}
   .box{position:absolute;left:0;right:0;bottom:8vh;text-align:center;color:#fff;padding:0 24px;z-index:2;}
-  .choose{margin:0 0 24px;font-size:.85rem;letter-spacing:.25em;text-transform:uppercase;opacity:.9;}
-  .flags{display:flex;gap:48px;justify-content:center;flex-wrap:wrap;}
+  .choose{margin:0 0 24px;font-size:.85rem;letter-spacing:.25em;text-transform:uppercase;opacity:.9;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .flags{display:flex;gap:48px;justify-content:center;flex-wrap:nowrap;}
   .flag{text-decoration:none;color:#fff;display:block;}
   .circle{
     width:96px;height:96px;border-radius:50%;overflow:hidden;
@@ -25,6 +25,10 @@
   .circle svg{width:100%;height:100%;display:block;}
   @media (max-width:767px){
     .bg-img{content:url('images/main-slider/entrecot-mobile-language.jpg');}
+    .choose{font-size:.7rem;letter-spacing:.2em;}
+    .flags{gap:32px;}
+    .circle{width:70px;height:70px;}
+    .box{bottom:auto;top:20%;transform:translateY(-50%);}
   }
 </style>
 </head>

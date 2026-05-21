@@ -7107,6 +7107,35 @@ html:not(.body-menu-opened) .hamburger .bottom-bun {
   color:var(--white-color);
   overflow:hidden;
 }
+
+.choose{
+  margin:0 0 24px;
+  font-size:.85rem;
+  letter-spacing:.25em;
+  text-transform:uppercase;
+  opacity:.9;
+  white-space:nowrap;       /* fuerza una sola línea */
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+@media (max-width:767px){
+  .bg-img{content:url('images/main-slider/entrecot-mobile-language.jpg');}
+
+  /* En móvil: texto en una línea pero más pequeño para que quepa */
+  .choose{
+    font-size:.7rem;
+    letter-spacing:.2em;
+  }
+
+  /* Banderas un poco por encima del centro */
+  .box{
+    bottom:auto;
+    top:42%;
+    transform:translateY(-50%);
+  }
+}
+
 .gg-pub-section::before{
   content:"";
   position:absolute; inset:0;
@@ -7308,6 +7337,16 @@ html:not(.body-menu-opened) .hamburger .bottom-bun {
   .gg-pub-title{ font-size:42px; }
   .gg-pub-hours{ flex-direction:column; gap:8px; }
   .gg-pub-hours::before, .gg-pub-hours::after{ display:none; }
+}
+
+.gg-pub-cta{
+  margin-top:40px;
+  display:flex;
+  justify-content:center;
+}
+.gg-pub-hours strong{ white-space:nowrap; }
+@media (max-width: 991px){
+  .gg-pub-cta{ margin-top:32px; }
 }
 
 /* ===== Print-style Menu (carta tipo PDF) ===== */
