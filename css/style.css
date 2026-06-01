@@ -7488,3 +7488,26 @@ html:not(.body-menu-opened) .hamburger .bottom-bun {
 .shows-frame .corner.br{bottom:-2px;right:-2px;border-left:0;border-top:0;border-bottom-right-radius:14px;}
 .shows-showcase .poster-cap{font-family:var(--font-family-Urbanist) !important;color:rgba(255,255,255,.55);font-size:.72rem;margin-top:28px;letter-spacing:.28em;text-transform:uppercase;font-weight:600;}
 @media(max-width:640px){.shows-frame{padding:12px;}.shows-frame .corner{width:20px;height:20px;}}
+
+/* Video frame fit: container hugs the video at any breakpoint, video shows complete */
+.gg-frame.gg-frame--video,
+.gg-frame:has(video){
+  aspect-ratio: auto !important;
+  height: auto !important;
+  overflow: visible;
+  background: #000;
+}
+.gg-frame.gg-frame--video::after,
+.gg-frame:has(video)::after{
+  inset: 6px;
+}
+.gg-frame.gg-frame--video video,
+.gg-frame video{
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  padding: 0;
+  object-fit: contain;
+}
