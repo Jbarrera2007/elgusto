@@ -7420,6 +7420,7 @@ html:not(.body-menu-opened) .hamburger .bottom-bun {
 /* Menu as image */
 .menu-card-main .menu-image-wrap{ padding: 20px 20px 40px; text-align:center; }
 .menu-card-main .menu-image{ width:100%; height:auto; display:block; margin:0 auto; border-radius:6px; box-shadow:0 14px 50px rgba(0,0,0,.3); cursor: zoom-in; transition: transform .35s ease, box-shadow .35s ease; }
+.menu-card-main .menu-image-wrap .menu-image + .menu-image{ margin-top: 30px; }
 .menu-card-main .menu-image:hover{ transform: translateY(-3px); box-shadow:0 18px 60px rgba(0,0,0,.4); }
 .menu-full{ max-width:1400px; }
 .menu-pages{ display:none; flex-direction:column; gap:18px; align-items:center; }
@@ -7440,15 +7441,18 @@ html:not(.body-menu-opened) .hamburger .bottom-bun {
 }
 
 /* Lightbox — fills the screen, image is pannable/zoomable on touch */
-.menu-lightbox{ position:fixed; inset:0; background:rgba(0,0,0,.94); display:none; z-index:9999; cursor: zoom-out; opacity:0; transition: opacity .25s ease; overflow:auto; -webkit-overflow-scrolling: touch; }
+.menu-lightbox{ position:fixed; inset:0; background:rgba(0,0,0,.94); display:none; z-index:9999; opacity:0; transition: opacity .25s ease; overflow:auto; -webkit-overflow-scrolling: touch; }
 .menu-lightbox.open{ display:block; opacity:1; }
 .menu-lightbox-inner{ min-height:100%; min-width:100%; display:flex; align-items:center; justify-content:center; padding:20px; box-sizing:border-box; }
-.menu-lightbox img{ max-width:96vw; max-height:94vh; width:auto; height:auto; box-shadow:0 20px 80px rgba(0,0,0,.6); border-radius:4px; touch-action: pinch-zoom; }
+.menu-lightbox.zoomed .menu-lightbox-inner{ display:block; padding:0; }
+.menu-lightbox img{ max-width:96vw; max-height:94vh; width:auto; height:auto; box-shadow:0 20px 80px rgba(0,0,0,.6); border-radius:4px; touch-action: pinch-zoom; cursor: zoom-in; transition: max-width .2s ease, max-height .2s ease; user-select:none; -webkit-user-drag:none; }
+.menu-lightbox.zoomed img{ max-width:none; max-height:none; width:auto; height:auto; cursor: grab; touch-action: auto; display:block; margin:0; }
+.menu-lightbox.zoomed img.grabbing{ cursor: grabbing; }
 .menu-lightbox-close{ position:fixed; top:14px; right:14px; width:44px; height:44px; border-radius:50%; background:rgba(255,255,255,.15); color:#fff; border:1px solid rgba(255,255,255,.35); font-size:24px; line-height:1; display:flex; align-items:center; justify-content:center; cursor:pointer; transition: background .2s ease; z-index:2; }
 .menu-lightbox-close:hover{ background:rgba(255,255,255,.28); }
 @media (max-width: 767px){
     .menu-lightbox-inner{ padding:8px; }
-    .menu-lightbox img{ max-width:98vw; max-height:92vh; width:auto; height:auto; }
+    .menu-lightbox img{ max-width:98vw; max-height:92vh; }
     .menu-lightbox-close{ top:10px; right:10px; width:40px; height:40px; }
 }
 

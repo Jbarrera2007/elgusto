@@ -250,7 +250,7 @@
             <div class="news-grid">
                 <figure class="news-card">
                     <div class="news-media">
-                        <img src="images/novedades/carta-brunch.jpg" alt="Carta Brunch El Gusto de la Cala" loading="lazy" onclick="openMenuLightbox('images/novedades/carta-brunch.jpg')">
+                        <img src="images/novedades/brunch español.jpg" alt="Carta Brunch El Gusto de la Cala" loading="lazy" onclick="openMenuLightbox('images/novedades/carta-brunch.jpg')">
                     </div>
                     <figcaption>
                         <h3>Carta de Brunch</h3>
@@ -290,19 +290,62 @@
 
             <div class="menu-image-wrap">
                 <img src="images/resource/carta-desktop-es.jpg" alt="Carta El Gusto de la Cala" class="menu-image menu-full" loading="lazy" onclick="openMenuLightbox('images/resource/carta-desktop-es.jpg')">
+                <img src="images/resource/carta-postres.jpg" alt="Carta Postres El Gusto de la Cala" class="menu-image menu-full" loading="lazy" onclick="openMenuLightbox('images/resource/carta-postres.jpg')">
                 <div class="menu-pages">
                     <img src="images/resource/carta-top.jpg" alt="Carta El Gusto de la Cala 1" class="menu-image" loading="lazy" onclick="openMenuLightbox('images/resource/carta-top.jpg')">
                     <img src="images/resource/carta-bottom.jpg" alt="Carta El Gusto de la Cala 2" class="menu-image" loading="lazy" onclick="openMenuLightbox('images/resource/carta-bottom.jpg')">
+                    <img src="images/resource/carta-postres.jpg" alt="Carta Postres El Gusto de la Cala" class="menu-image" loading="lazy" onclick="openMenuLightbox('images/resource/carta-postres.jpg')">
                 </div>
                 <div class="menu-zoom-hint">Haz clic para ampliar</div>
             </div>
-            <div id="menuLightbox" class="menu-lightbox" onclick="if(event.target===this||event.target.classList.contains('menu-lightbox-inner')||event.target.classList.contains('menu-lightbox-close'))this.classList.remove('open')">
-                <button class="menu-lightbox-close" aria-label="Cerrar">×</button>
+            <div id="menuLightbox" class="menu-lightbox" onclick="if(event.target===this||event.target.classList.contains('menu-lightbox-inner'))closeMenuLightbox()">
+                <button class="menu-lightbox-close" aria-label="Cerrar" onclick="closeMenuLightbox()">×</button>
                 <div class="menu-lightbox-inner">
                     <img id="menuLightboxImg" src="images/resource/carta.jpg" alt="Carta El Gusto de la Cala">
                 </div>
             </div>
-            <script>function openMenuLightbox(src){document.getElementById('menuLightboxImg').src=src;document.getElementById('menuLightbox').classList.add('open');}</script>
+            <script>
+(function(){
+  var lb, img, isDown=false, startX=0, startY=0, scrollX=0, scrollY=0, moved=false;
+  function ensure(){ if(!lb){ lb=document.getElementById('menuLightbox'); img=document.getElementById('menuLightboxImg'); bind(); } }
+  function bind(){
+    img.addEventListener('click', function(e){
+      e.stopPropagation();
+      if(moved){ moved=false; return; }
+      if(lb.classList.contains('zoomed')){
+        lb.classList.remove('zoomed');
+      } else {
+        var r=img.getBoundingClientRect();
+        var px=(e.clientX-r.left)/r.width;
+        var py=(e.clientY-r.top)/r.height;
+        lb.classList.add('zoomed');
+        requestAnimationFrame(function(){
+          lb.scrollLeft = img.offsetWidth*px - lb.clientWidth/2;
+          lb.scrollTop = img.offsetHeight*py - lb.clientHeight/2;
+        });
+      }
+    });
+    img.addEventListener('mousedown', function(e){
+      if(!lb.classList.contains('zoomed')) return;
+      isDown=true; moved=false;
+      startX=e.clientX; startY=e.clientY;
+      scrollX=lb.scrollLeft; scrollY=lb.scrollTop;
+      img.classList.add('grabbing');
+      e.preventDefault();
+    });
+    window.addEventListener('mousemove', function(e){
+      if(!isDown) return;
+      var dx=e.clientX-startX, dy=e.clientY-startY;
+      if(Math.abs(dx)+Math.abs(dy)>4) moved=true;
+      lb.scrollLeft = scrollX - dx;
+      lb.scrollTop = scrollY - dy;
+    });
+    window.addEventListener('mouseup', function(){ if(isDown){ isDown=false; img.classList.remove('grabbing'); } });
+  }
+  window.openMenuLightbox=function(src){ ensure(); img.src=src; lb.classList.remove('zoomed'); lb.classList.add('open'); lb.scrollTop=0; lb.scrollLeft=0; document.body.style.overflow='hidden'; };
+  window.closeMenuLightbox=function(){ ensure(); lb.classList.remove('open'); lb.classList.remove('zoomed'); document.body.style.overflow=''; };
+})();
+            </script>
         </div>
     </section>
 
