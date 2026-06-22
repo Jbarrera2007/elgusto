@@ -7521,12 +7521,18 @@ html:not(.body-menu-opened) .hamburger .bottom-bun {
     background-color: var(--color-one);
     padding: 22px 15px;
     border-bottom: solid 1px var(--color-four);
+    width: 100%;
+    display: block;
+    text-align: center;
 }
 .kayak-above-footer .kayak-link {
+    display: block;
+    width: 100%;
     text-align: center;
     font-size: 15px;
     color: var(--color-three);
     letter-spacing: .3px;
+    margin: 0 auto;
 }
 .kayak-above-footer .kayak-link a {
     color: var(--main-color);
@@ -7535,8 +7541,19 @@ html:not(.body-menu-opened) .hamburger .bottom-bun {
     font-weight: 600;
     border-bottom: 1px solid transparent;
     transition: .3s all;
+    white-space: nowrap;
 }
 .kayak-above-footer .kayak-link a:hover {
     color: var(--white-color);
     border-bottom-color: var(--main-color);
+}
+@media (max-width: 575px) {
+    .kayak-above-footer .kayak-link {
+        white-space: nowrap;
+        font-size: 12px;
+        letter-spacing: 0;
+    }
+    .kayak-above-footer .kayak-link a {
+        margin-left: 4px;
+    }
 }
