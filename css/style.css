@@ -7515,3 +7515,28 @@ html:not(.body-menu-opened) .hamburger .bottom-bun {
   padding: 0;
   object-fit: contain;
 }
+
+/* Kayak link above footer */
+.kayak-above-footer {
+    background-color: var(--color-one);
+    padding: 22px 15px;
+    border-bottom: solid 1px var(--color-four);
+}
+.kayak-above-footer .kayak-link {
+    text-align: center;
+    font-size: 15px;
+    color: var(--color-three);
+    letter-spacing: .3px;
+}
+.kayak-above-footer .kayak-link a {
+    color: var(--main-color);
+    margin-left: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid transparent;
+    transition: .3s all;
+}
+.kayak-above-footer .kayak-link a:hover {
+    color: var(--white-color);
+    border-bottom-color: var(--main-color);
+}
